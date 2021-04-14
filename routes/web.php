@@ -12,7 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $helljoWorld = 'Hello World';
+    
+    return view('welcome', compact('helloWorld'));
+});
+
+Route::get('/model', function(){
+    $products = \App\Product::all();
+    return $products;
 });
 
 Auth::routes();
