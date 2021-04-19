@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    $helljoWorld = 'Hello World';
+    $helloWorld = 'Hello World';
     
     return view('welcome', compact('helloWorld'));
 });
