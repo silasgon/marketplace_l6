@@ -1,4 +1,4 @@
-<?php
+'<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,6 @@ Route::get('/model', function(){
     $user->name = 'Usuario teste 2';
     $user->email = 'email2@test.com';
     $user->password = bcrypt('12345678');
-
     
    $user->save(); */
    //return \App\User::find(3);
@@ -46,7 +45,58 @@ Route::get('/model', function(){
     'name' => 'Atuaizando com mass update'  
   ]);
    */
-  return\App\User::all();
+    //$user = \App\User::find(4);
+   //return $user->store()->count();
+
+   //$loja = \App\Store::find(1);
+   //return $loja->products; | $loja->products()->where('id', 9)->get();
+   
+   //Criar uma loja para um usuario
+/*    $user = \App\User::find(10);
+   $store = $user->store()->create([
+     'name' => 'Loja teste',
+     'description' => 'Loja teste de produtos de informatica',
+     'mobile_phone' => 'ZZ-ZZZZ-ZZZZ',
+     'phone' => 'ZZ-ZZZZ-ZZZZ',
+     'slug' => 'loja-teste'     
+   ]);
+  
+   dd($store); */
+   
+   //Criar um produto para a loja
+/* $store = \App\Store::find(41);
+$product = $store->products()->create([
+  'name' => 'Notebook Dell',
+  'description' => 'CORE I5 10GB',
+  'body' => 'Qialquer coisa',
+  'price' => 2999.90,
+  'slug' => 'notebook=dell'
+]);
+
+dd($product); */
+
+//Criar uma categoria
+/* \App\Category::create([
+  'name' => 'Games',
+  'description' => null,
+  'slug' => 'games'
+]);
+\App\Category::create([
+  'name' => 'notebooks',
+  'description' => null,
+  'slug' => 'notebooks'
+]);
+
+return \App\Category::all(); */
+   
+  //Adicionar um produto para uma categoria ou vice-versa
+  $product = \App\Product::find(41);
+ // dd($product->categories()->sync([2]));
+  
+return $product->categories;
+  
+  return \App\User::all();
+  
 });
 
 /* Auth::routes();
